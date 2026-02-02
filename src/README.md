@@ -13,16 +13,4 @@ Requirements
 - Node.js 14+ (or compatible)
 - npm
 
-Install and run
-1. Install dependencies:
-   npm install
-
-2. Start the dev server:
-   npm start
-
-The app uses Parcel for bundling; it will open in your browser automatically.
-
-Notes & next steps
-- This is intentionally simple for demonstration. Passwords are stored in plaintext in localStorage—do NOT use this for production.
-- To add a backend, I can provide an Express server, or switch to json-server for quick prototyping.
-- Add stronger validation, password hashing, and sessions stored server-side for production security.
+this is not production redy version this is compny project
