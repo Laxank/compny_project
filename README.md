@@ -65,28 +65,6 @@ npm run build
 
 ---
 
-## Troubleshooting
-
-- If Parcel fails to load a native module with an error referencing `@parcel/source-map` and `ERR_DLOPEN_FAILED`, try:
-  - Switching to Node 18 (see above)
-  - Installing the **Microsoft Visual C++ Redistributable (2015–2022)** x64 and then reinstalling packages
-
-Example commands (PowerShell as Admin):
-
-```powershell
-# download and run vcredist installer (interactive/elevated)
-$dest="$env:USERPROFILE\Downloads\vc_redist.x64.exe"
-Invoke-WebRequest -Uri "https://aka.ms/vs/17/release/vc_redist.x64.exe" -OutFile $dest
-Start-Process -FilePath $dest -ArgumentList '/install','/passive','/norestart' -Verb RunAs -Wait
-
-# then reinstall
-Remove-Item -Recurse -Force .\node_modules
-Remove-Item -Force .\package-lock.json
-npm install
-npm start
-```
-
----
 
 ## Notes (Important)
 
@@ -95,31 +73,3 @@ npm start
 - No server-side validation or protections (only client-side checks)
 - Passwords are stored as plain text in localStorage for demo purposes — never do this in production
 
----
-
-## File highlights
-
-- Entry: `public/index.html`
-- App root: `src/index.jsx` and `src/App.jsx`
-- Components: `src/components` (Login, Register, Account, ProtectedRoute)
-- Services: `src/services` (auth.jsx, userService.jsx)
-- Static logo: `public/images/download.jpg`
-
----
-
-## How to swap the logo
-
-Replace `public/images/download.jpg` with your logo image (keep the same filename) or update `public/index.html` to point to a different file.
-
----
-
-## License & contact
-
-- License: MIT (include/replace with your preferred license)
-- For any questions about this submission, contact the author or Chaintech Network review team.
-
----
-
-Good luck with the submission! If you want, I can also:
-- Move the footer/note into a separate component, or
-- Prepare a short demo video or screenshot gallery to include with the submission.
