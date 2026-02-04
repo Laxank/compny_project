@@ -55,6 +55,20 @@ button {
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+  transition: transform 140ms cubic-bezier(.2,.8,.2,1), box-shadow 140ms ease, opacity 140ms ease;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+
+button:active,
+button.btn-press {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 4px 12px rgba(15,23,42,0.08);
+  opacity: 0.98;
+}
+
+button:focus {
+  outline: 3px solid rgba(11,116,222,0.12);
+  outline-offset: 2px;
 }
 
 button.secondary {
@@ -90,4 +104,83 @@ button.secondary {
 .field-row {
   display: flex;
   gap: 8px;
+}
+
+/* Footer note */
+.app-footer {
+  margin-top: 18px;
+  padding-top: 12px;
+  border-top: 1px solid #e6e7eb;
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* required marker */
+label .required { color: var(--muted); margin-left: 4px; font-weight: 600; font-size: 12px; vertical-align: baseline; opacity: 0.9; }
+
+
+/* Toast */
+.toast {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 260px;
+  max-width: 90%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.12);
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  z-index: 9999;
+}
+
+.toast .toast-body {
+  flex: 1;
+  font-size: 14px;
+}
+
+.toast .toast-close {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: #374151;
+}
+
+.toast.error {
+  border-left: 6px solid #dc2626; /* red */
+}
+
+/* Red border for invalid inputs */
+.error-input {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220,38,38,0.06);
+}
+
+/* Shake animation for invalid inputs */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10%, 90% { transform: translateX(-3px); }
+  20%, 80% { transform: translateX(6px); }
+  30%, 50%, 70% { transform: translateX(-9px); }
+  40%, 60% { transform: translateX(9px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  display: inline-block; /* ensure transform works consistently */
+  will-change: transform;
+  animation: shake 600ms cubic-bezier(.36,.07,.19,.97);
+  animation-fill-mode: both;
+}
+.toast.success {
+  border-left: 6px solid #16a34a; /* green */
+}
+
+.toast.info {
+  border-left: 6px solid #0b74de; /* blue */
 }
